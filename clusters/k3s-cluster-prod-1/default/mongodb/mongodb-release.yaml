@@ -21,7 +21,7 @@ spec:
     persistence.existingClaim: longhorn-mongodb-pvc
     livenessProbe.initialDelaySeconds: 180
     auth.rootPassword: passw0rd
-    auth.username: user1
+    auth.username: user
     auth.password: password
     auth.database: mydb
     service.type: ClusterIP 
