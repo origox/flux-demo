@@ -15,4 +15,14 @@ spec:
         namespace: default
       version: 13.2.0
   interval: 1m0s
+values:
+  global.namespaceOverride: mongodb
+  persistence.enabled: true
+  persistence.existingClaim: longhorn-mongodb-pvc
+  livenessProbe.initialDelaySeconds: 180
+  auth.rootPassword: passw0rd
+  auth.username: user1
+  auth.password: password
+  auth.database: mydb
+  service.type: ClusterIP 
 
