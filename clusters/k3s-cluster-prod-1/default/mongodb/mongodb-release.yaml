@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: mongodb
-  namespace: default
+  namespace: mongodb
 spec:
   chart:
     spec:
@@ -12,17 +12,22 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitnami
-        namespace: default
+        namespace: mongodb
       version: 13.2.0
   interval: 1m0s
   values:
-    global.namespaceOverride: mongodb
-    persistence.enabled: true
-    persistence.existingClaim: longhorn-mongodb-pvc
-    livenessProbe.initialDelaySeconds: 180
-    auth.rootPassword: passw0rd
-    auth.username: user
-    auth.password: password
-    auth.database: mydb
-    service.type: ClusterIP 
+    global:
+      namespaceOverride: mongodb
+    persistence:
+      enabled: true
+      existingClaim: longhorn-mongodb-pvc
+    livenessProbe:
+      initialDelaySeconds: 180
+    auth:
+      rootPassword: passw0rd
+      username: user
+      password: password
+      database: mydb
+    service:
+      type: ClusterIP 
 
