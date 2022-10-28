@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: mongodb
-      version: 13.2.0
+      version: 13.3.0
   interval: 1m0s
   values:
     global:
